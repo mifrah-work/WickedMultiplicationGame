@@ -54,6 +54,17 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
           {/* Story Section */}
           <div className="bg-white/10 rounded-2xl p-8 mb-8">
             <h3 className="text-2xl font-bold text-pink-300 mb-4">✨ The Story</h3>
+            <div className="flex items-center justify-center gap-8 mb-6">
+              <div className="flex flex-col items-center">
+                <img src={chapter.heroImage} alt={chapter.hero} className="w-20 h-20 object-contain rounded-full border-2 border-pink-300 bg-white" />
+                <span className="text-base text-pink-100 mt-2 font-semibold">{chapter.hero}</span>
+              </div>
+              <span className="text-2xl text-white font-bold">vs.</span>
+              <div className="flex flex-col items-center">
+                <img src={chapter.villainImage} alt={chapter.villain} className="w-20 h-20 object-contain rounded-full border-2 border-green-300 bg-white" />
+                <span className="text-base text-green-100 mt-2 font-semibold">{chapter.villain}</span>
+              </div>
+            </div>
             <p className="text-xl text-white leading-relaxed">
               {chapter.story}
             </p>

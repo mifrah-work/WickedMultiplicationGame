@@ -16,8 +16,8 @@ import wrongSound from '../assets/sounds/wrong.mp3';
 
 export const gameData = {
   1: {
-    title: "Chapter 1",
-    story: "Elphaba blasts the Flying Monkeys with emerald lightning every time Reanne gets a multiplication correct.",
+    title: "Chapter 1: Elphaba vs. Flying Monkeys",
+    story: "Players answer multiplication questions to help Elphaba fend off mischievous Flying Monkeys attacking the city.",
     hero: "Elphaba",
     villain: "Flying Monkeys",
     heroImage: elphabaImg,
@@ -25,8 +25,8 @@ export const gameData = {
     unlocked: true
   },
   2: {
-    title: "Chapter 2",
-    story: "Glinda twirls her sparkly wand and knocks back Madame Morrible whenever Reanne solves a question.",
+    title: "Chapter 2: Glinda vs. Madame Morrible",
+    story: "Correct answers help Glinda block Madame Morrible’s spells from spreading chaos in the castle.",
     hero: "Glinda",
     villain: "Madame Morrible",
     heroImage: glindaImg,
@@ -34,8 +34,8 @@ export const gameData = {
     unlocked: false
   },
   3: {
-    title: "Chapter 3",
-    story: "Fiyero dashes through the trees, striking down a Monkey with every right answer.",
+    title: "Chapter 3: Fiyero vs. Flying Monkeys",
+    story: "Multiplication problems give Fiyero the power to protect citizens from Flying Monkey mischief.",
     hero: "Fiyero",
     villain: "Flying Monkeys",
     heroImage: fiyeroImg,
@@ -43,8 +43,8 @@ export const gameData = {
     unlocked: false
   },
   4: {
-    title: "Chapter 4",
-    story: "Nessarose casts a steady, glowing spell that weakens Madame Morrible each time Reanne gets one right.",
+    title: "Chapter 4: Nessarose vs. Madame Morrible",
+    story: "Players solve questions to help Nessarose resist Madame Morrible’s manipulations in her palace.",
     hero: "Nessarose",
     villain: "Madame Morrible",
     heroImage: nessaroseImg,
@@ -52,8 +52,8 @@ export const gameData = {
     unlocked: false
   },
   5: {
-    title: "Chapter 5",
-    story: "Boq bravely swings his lantern, scattering a Monkey swarm with each correct solution.",
+    title: "Chapter 5: Boq vs. Flying Monkeys",
+    story: "Multiplication answers strengthen Boq to fend off the Flying Monkeys during a forest encounter.",
     hero: "Boq",
     villain: "Flying Monkeys",
     heroImage: boqImg,
@@ -61,20 +61,20 @@ export const gameData = {
     unlocked: false
   },
   6: {
-    title: "Chapter 6",
-    story: "Elphaba unleashes a giant emerald shockwave powered by Reanne's perfect answers.",
-    hero: "Elphaba",
-    villain: "Madame Morrible (Boss Round)",
-    heroImage: elphabaImg,
+    title: "Chapter 6: Elphaba & Glinda vs. Madame Morrible",
+    story: "Both heroes team up, and correct answers help them break Madame Morrible’s spell over the Emerald City.",
+    hero: "Elphaba & Glinda",
+    villain: "Madame Morrible",
+    heroImage: elphabaImg, // You may want to update this to a combined image if available
     villainImage: madameMorribleImg,
     unlocked: false
   },
   7: {
-    title: "Chapter 7",
-    story: "Glinda lifts into the air and sparkles explode around her as she defeats each Monkey Reanne answers.",
-    hero: "Glinda",
-    villain: "Flying Monkeys (Final Round)",
-    heroImage: glindaImg,
+    title: "Chapter 7: Final Battle – Elphaba, Glinda & Fiyero vs. Flying Monkeys",
+    story: "Players answer a series of multiplication challenges to defeat the last wave of Flying Monkeys and save the day.",
+    hero: "Elphaba, Glinda & Fiyero",
+    villain: "Flying Monkeys",
+    heroImage: elphabaImg, // You may want to update this to a group image if available
     villainImage: flyingMonkeyImg,
     unlocked: false
   }

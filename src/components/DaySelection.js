@@ -93,9 +93,16 @@ const DaySelection = ({ onSelectDay, unlockedDays, resetProgress }) => {
                   <h3 className="text-lg font-semibold text-white mb-3">
                     {chapter.title}
                   </h3>
-                  <div className="text-sm text-gray-200 mb-4">
-                    <p><strong>Hero:</strong> {chapter.hero}</p>
-                    <p><strong>Villain:</strong> {chapter.villain}</p>
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <div className="flex flex-col items-center">
+                      <img src={chapter.heroImage} alt={chapter.hero} className="w-14 h-14 object-contain rounded-full border-2 border-pink-300 bg-white" />
+                      <span className="text-xs text-pink-100 mt-1">{chapter.hero}</span>
+                    </div>
+                    <span className="text-lg text-white font-bold">vs.</span>
+                    <div className="flex flex-col items-center">
+                      <img src={chapter.villainImage} alt={chapter.villain} className="w-14 h-14 object-contain rounded-full border-2 border-green-300 bg-white" />
+                      <span className="text-xs text-green-100 mt-1">{chapter.villain}</span>
+                    </div>
                   </div>
                   <p className="text-sm text-gray-300 italic">
                     {chapter.story}
