@@ -31,6 +31,12 @@ function App() {
     setCurrentScreen('gameBattle');
   };
 
+  const resetProgress = () => {
+    localStorage.removeItem('wickedMultiplicationProgress');
+    setUnlockedDays([1]);
+    setCurrentScreen('daySelection');
+  };
+
   const handleGameComplete = (victory) => {
     if (victory && selectedDay < 7 && !unlockedDays.includes(selectedDay + 1)) {
       const newUnlockedDays = [...unlockedDays, selectedDay + 1];
@@ -50,9 +56,10 @@ function App() {
   return (
     <div className="App">
       {currentScreen === 'daySelection' && (
-        <DaySelection 
+        <DaySelection
           onSelectDay={handleSelectDay}
           unlockedDays={unlockedDays}
+          resetProgress={resetProgress}
         />
       )}
       

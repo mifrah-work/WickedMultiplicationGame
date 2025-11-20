@@ -38,6 +38,7 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         if (currentSoundRef.current) {
           currentSoundRef.current.pause();
           currentSoundRef.current.currentTime = 0;
+          currentSoundRef.current = null;
         }
         
         const currentCorrectSound = sounds.correct[correctSoundIndex];
@@ -46,7 +47,22 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         
         correctSound.play().catch(e => console.log('Audio play failed:', e));
         
-        // Let the audio play naturally without cutting it off
+        // Force stop audio after 0.7 seconds
+        const timeoutId = setTimeout(() => {
+          correctSound.pause();
+          correctSound.currentTime = 0;
+          if (currentSoundRef.current === correctSound) {
+            currentSoundRef.current = null;
+          }
+        }, 700);
+        
+        // Also listen for when audio naturally ends
+        correctSound.addEventListener('ended', () => {
+          clearTimeout(timeoutId);
+          if (currentSoundRef.current === correctSound) {
+            currentSoundRef.current = null;
+          }
+        });
       }
       
       // Cycle to next correct sound
@@ -62,10 +78,29 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         if (currentSoundRef.current) {
           currentSoundRef.current.pause();
           currentSoundRef.current.currentTime = 0;
+          currentSoundRef.current = null;
         }
         
         const wrongAudio = new Audio(sounds.wrong);
+        currentSoundRef.current = wrongAudio;
         wrongAudio.play().catch(e => console.log('Audio play failed:', e));
+        
+        // Force stop audio after 0.7 seconds
+        const timeoutId = setTimeout(() => {
+          wrongAudio.pause();
+          wrongAudio.currentTime = 0;
+          if (currentSoundRef.current === wrongAudio) {
+            currentSoundRef.current = null;
+          }
+        }, 700);
+        
+        // Also listen for when audio naturally ends
+        wrongAudio.addEventListener('ended', () => {
+          clearTimeout(timeoutId);
+          if (currentSoundRef.current === wrongAudio) {
+            currentSoundRef.current = null;
+          }
+        });
       }
       
       setWrongAnswers(wrongAnswers + 1);

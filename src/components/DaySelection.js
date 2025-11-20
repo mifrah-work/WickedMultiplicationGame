@@ -1,16 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { gameData } from '../data/gameData';
 
-const DaySelection = ({ onSelectDay, unlockedDays }) => {
+const DaySelection = ({ onSelectDay, unlockedDays, resetProgress }) => {
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleResetClick = () => {
+    setShowConfirm(true);
+  };
+
+  const handleConfirmReset = () => {
+    resetProgress();
+    setShowConfirm(false);
+  };
+
+  const handleCancelReset = () => {
+    setShowConfirm(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-900 via-green-900 to-emerald-900 p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-6xl font-bold text-center text-pink-300 mb-4 drop-shadow-lg">
-          ✨ Wicked Multiplication Quest ✨
-        </h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-6xl font-bold text-pink-300 drop-shadow-lg">
+            ✨ Wicked Multiplication Quest ✨
+          </h1>
+          <button
+            onClick={handleResetClick}
+            className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl shadow transition-all duration-300 ml-4"
+          >
+            🔄 Reset Progress
+          </button>
+        </div>
         <p className="text-xl text-center text-white mb-12">
           Choose your adventure! Defy gravity with math!
         </p>
+        {showConfirm && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+            <div className="bg-white rounded-xl p-8 shadow-xl text-center max-w-sm mx-auto">
+              <h2 className="text-xl font-bold mb-4 text-red-600">Are you sure?</h2>
+              <p className="mb-6 text-gray-800">This will reset progress back to Day 1.</p>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={handleCancelReset}
+                  className="px-6 py-2 bg-gray-400 hover:bg-gray-500 text-white font-bold rounded-xl"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleConfirmReset}
+                  className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl"
+                >
+                  Yes, Reset
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {Object.entries(gameData).map(([day, chapter]) => {
