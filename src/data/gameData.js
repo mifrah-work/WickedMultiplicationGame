@@ -4,78 +4,79 @@ import glindaImg from '../assets/images/glinda.png';
 import fiyeroImg from '../assets/images/fiyero.png';
 import nessaroseImg from '../assets/images/nessarose.png';
 import boqImg from '../assets/images/boq.png';
-import flyingMonkeyImg from '../assets/images/flyingmonkey.png';
-import madameMorribleImg from '../assets/images/madamemorrible.png';
+import madamemorribleImg from '../assets/images/madamemorrible.png';
+import flyingmonkeyImg from '../assets/images/flyingmonkey.png';
+import demonImg from '../assets/images/demon.png';
 
 // Import all sound files
-import wicked1Sound from '../assets/sounds/Wicked1.MP3';
-import wicked2Sound from '../assets/sounds/Wicked2.MP3';
-import wicked3Sound from '../assets/sounds/Wicked3.MP3';
-import wicked4Sound from '../assets/sounds/Wicked4.MP3';
+import wicked1Sound from '../assets/sounds/Wicked1.mp3';
+import wicked2Sound from '../assets/sounds/Wicked2.mp3';
+import wicked3Sound from '../assets/sounds/Wicked3.mp3';
+import wicked4Sound from '../assets/sounds/Wicked4.mp3';
 import wrongSound from '../assets/sounds/wrong.mp3';
 
 export const gameData = {
   1: {
-    title: "Chapter 1: Elphaba vs. Flying Monkeys",
-    story: "Players answer multiplication questions to help Elphaba fend off mischievous Flying Monkeys attacking the city.",
+    title: "Chapter 1: Elphaba's Arrival",
+    story: "Elphaba arrives at Shiz University and discovers her magical powers.",
     hero: "Elphaba",
-    villain: "Flying Monkeys",
+    villain: "Madame Morrible",
     heroImage: elphabaImg,
-    villainImage: flyingMonkeyImg,
+    villainImage: madamemorribleImg,
     unlocked: true
   },
   2: {
-    title: "Chapter 2: Glinda vs. Madame Morrible",
-    story: "Correct answers help Glinda block Madame Morrible’s spells from spreading chaos in the castle.",
+    title: "Chapter 2: Glinda's Dilemma",
+    story: "Glinda faces a tough choice between popularity and true friendship.",
     hero: "Glinda",
-    villain: "Madame Morrible",
+    villain: "Flying Monkey",
     heroImage: glindaImg,
-    villainImage: madameMorribleImg,
+    villainImage: flyingmonkeyImg,
     unlocked: false
   },
   3: {
-    title: "Chapter 3: Fiyero vs. Flying Monkeys",
-    story: "Multiplication problems give Fiyero the power to protect citizens from Flying Monkey mischief.",
+    title: "Chapter 3: Fiyero's Stand",
+    story: "Fiyero stands up to protect Elphaba from the Wizard's schemes.",
     hero: "Fiyero",
-    villain: "Flying Monkeys",
+    villain: "Boq",
     heroImage: fiyeroImg,
-    villainImage: flyingMonkeyImg,
+    villainImage: boqImg,
     unlocked: false
   },
   4: {
-    title: "Chapter 4: Nessarose vs. Madame Morrible",
-    story: "Players solve questions to help Nessarose resist Madame Morrible’s manipulations in her palace.",
+    title: "Chapter 4: Nessarose's Spell",
+    story: "Nessarose casts a spell that changes the fate of Oz.",
     hero: "Nessarose",
     villain: "Madame Morrible",
     heroImage: nessaroseImg,
-    villainImage: madameMorribleImg,
+    villainImage: madamemorribleImg,
     unlocked: false
   },
   5: {
-    title: "Chapter 5: Boq vs. Flying Monkeys",
-    story: "Multiplication answers strengthen Boq to fend off the Flying Monkeys during a forest encounter.",
+    title: "Chapter 5: Boq's Wish",
+    story: "Boq wishes to win Glinda's heart but gets caught in a magical mishap.",
     hero: "Boq",
-    villain: "Flying Monkeys",
+    villain: "Flying Monkey",
     heroImage: boqImg,
-    villainImage: flyingMonkeyImg,
+    villainImage: flyingmonkeyImg,
     unlocked: false
   },
   6: {
-    title: "Chapter 6: Elphaba & Glinda vs. Madame Morrible",
-    story: "Both heroes team up, and correct answers help them break Madame Morrible’s spell over the Emerald City.",
-    hero: "Elphaba & Glinda",
-    villain: "Madame Morrible",
-    heroImage: elphabaImg, // You may want to update this to a combined image if available
-    villainImage: madameMorribleImg,
+    title: "Chapter 6: The Wizard's Plan",
+    story: "The Wizard tries to capture Elphaba and take her powers.",
+    hero: "Elphaba",
+    villain: "Demon",
+    heroImage: elphabaImg,
+    villainImage: demonImg,
     unlocked: false
   },
   7: {
-    title: "Chapter 7: Final Battle – Elphaba, Glinda & Fiyero vs. Flying Monkeys",
-    story: "Players answer a series of multiplication challenges to defeat the last wave of Flying Monkeys and save the day.",
-    hero: "Elphaba, Glinda & Fiyero",
-    villain: "Flying Monkeys",
-    heroImage: elphabaImg, // You may want to update this to a group image if available
-    villainImage: flyingMonkeyImg,
+    title: "Chapter 7: The Final Showdown",
+    story: "Elphaba, Glinda, and friends unite to defeat the Wizard and save Oz.",
+    hero: "Glinda",
+    villain: "Demon",
+    heroImage: glindaImg,
+    villainImage: demonImg,
     unlocked: false
   }
 };
@@ -87,24 +88,52 @@ export const sounds = {
 
 export const multiplicationTables = [3, 4];
 
-export const generateQuestion = () => {
-  const table = multiplicationTables[Math.floor(Math.random() * multiplicationTables.length)];
-  
-  // All tables only go up to 10 (no 11x11, 11x12, or any x11, x12)
-  const multiplier = Math.floor(Math.random() * 10) + 1;
-  
-  return {
-    question: `${table} × ${multiplier}`,
-    answer: table * multiplier,
-    table,
-    multiplier
-  };
+// Division chapters with specific times tables
+export const divisionChapterTables = {
+  1: [1, 2, 3],     // Chapter 1: 1-3 times table divisions
+  2: [4, 5],        // Chapter 2: 4-5
+  3: [6, 7],        // Chapter 3: 6-7
+  4: [8, 9, 10],    // Chapter 4: 8-10
+  5: [1, 2, 3, 4, 5], // Chapter 5: 1-5
+  6: [6, 7, 8],     // Chapter 6: 6-8
+  7: [6, 7, 8, 9, 10] // Chapter 7: 6-10
 };
 
-export const generateQuestions = (count = 50) => {
+export const generateQuestion = (practiceMode = 'multiplication', chapter = 1) => {
+  if (practiceMode === 'division') {
+    // Get tables for this chapter
+    const tables = divisionChapterTables[chapter] || [2, 3];
+    const divisor = tables[Math.floor(Math.random() * tables.length)];
+    
+    // Generate a division problem (divisor × multiplier = dividend)
+    const multiplier = Math.floor(Math.random() * 10) + 1;
+    const dividend = divisor * multiplier;
+    
+    return {
+      question: `${dividend} ÷ ${divisor}`,
+      answer: multiplier,
+      table: divisor,
+      multiplier,
+      dividend
+    };
+  } else {
+    // Multiplication mode
+    const table = multiplicationTables[Math.floor(Math.random() * multiplicationTables.length)];
+    const multiplier = Math.floor(Math.random() * 10) + 1;
+    
+    return {
+      question: `${table} × ${multiplier}`,
+      answer: table * multiplier,
+      table,
+      multiplier
+    };
+  }
+};
+
+export const generateQuestions = (count = 50, practiceMode = 'multiplication', chapter = 1) => {
   const questions = [];
   for (let i = 0; i < count; i++) {
-    questions.push(generateQuestion());
+    questions.push(generateQuestion(practiceMode, chapter));
   }
   return questions;
 };

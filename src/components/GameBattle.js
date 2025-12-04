@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { gameData, generateQuestions, sounds } from '../data/gameData';
 
-const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
+const GameBattle = ({ day, practiceMode, onGameComplete, onBack, onBackToHome }) => {
   const chapter = gameData[day];
-  const [questions] = useState(() => generateQuestions(50));
+  const [questions] = useState(() => generateQuestions(50, practiceMode, day));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [score, setScore] = useState(0);
@@ -38,36 +38,22 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         if (currentSoundRef.current) {
           currentSoundRef.current.pause();
           currentSoundRef.current.currentTime = 0;
-          currentSoundRef.current = null;
         }
-        
+
         const currentCorrectSound = sounds.correct[correctSoundIndex];
         const correctSound = new Audio(currentCorrectSound);
         currentSoundRef.current = correctSound;
-        
         correctSound.play().catch(e => console.log('Audio play failed:', e));
-        
-        // Force stop audio after 0.7 seconds
-        const timeoutId = setTimeout(() => {
+        // Clip after 0.7 seconds
+        setTimeout(() => {
           correctSound.pause();
           correctSound.currentTime = 0;
-          if (currentSoundRef.current === correctSound) {
-            currentSoundRef.current = null;
-          }
         }, 700);
-        
-        // Also listen for when audio naturally ends
-        correctSound.addEventListener('ended', () => {
-          clearTimeout(timeoutId);
-          if (currentSoundRef.current === correctSound) {
-            currentSoundRef.current = null;
-          }
-        });
       }
-      
+
       // Cycle to next correct sound
       setCorrectSoundIndex((correctSoundIndex + 1) % sounds.correct.length);
-      
+
       setScore(score + 1);
       setHeroAttacking(true);
       setVillainEnergy(Math.max(0, villainEnergy - 2));
@@ -78,31 +64,17 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
         if (currentSoundRef.current) {
           currentSoundRef.current.pause();
           currentSoundRef.current.currentTime = 0;
-          currentSoundRef.current = null;
         }
-        
+
         const wrongAudio = new Audio(sounds.wrong);
-        currentSoundRef.current = wrongAudio;
         wrongAudio.play().catch(e => console.log('Audio play failed:', e));
-        
-        // Force stop audio after 0.7 seconds
-        const timeoutId = setTimeout(() => {
+        // Clip after 0.7 seconds
+        setTimeout(() => {
           wrongAudio.pause();
           wrongAudio.currentTime = 0;
-          if (currentSoundRef.current === wrongAudio) {
-            currentSoundRef.current = null;
-          }
         }, 700);
-        
-        // Also listen for when audio naturally ends
-        wrongAudio.addEventListener('ended', () => {
-          clearTimeout(timeoutId);
-          if (currentSoundRef.current === wrongAudio) {
-            currentSoundRef.current = null;
-          }
-        });
       }
-      
+
       setWrongAnswers(wrongAnswers + 1);
       setVillainAttacking(true);
       setHeroEnergy(Math.max(0, heroEnergy - 2));
@@ -167,8 +139,8 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
 
   if (gameOver) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-pink-900 to-green-900 flex items-center justify-center p-8">
-        <div className="max-w-2xl mx-auto bg-black/40 rounded-3xl p-12 border-4 border-pink-300 text-center">
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 to-indigo-900 flex items-center justify-center p-8">
+        <div className="max-w-2xl mx-auto bg-black/40 rounded-3xl p-12 border-4 border-yellow-400 text-center">
           <h1 className={`text-6xl font-bold mb-6 ${victory ? 'text-green-400' : 'text-red-400'}`}>
             {victory ? '🎉 VICTORY! 🎉' : '💀 DEFEAT 💀'}
           </h1>
@@ -230,7 +202,7 @@ const GameBattle = ({ day, onGameComplete, onBack, onBackToHome }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-900 via-green-900 to-emerald-900 p-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-pink-900 p-4">
       {/* Header */}
       <div className="max-w-6xl mx-auto mb-6">
         <div className="flex justify-between items-center bg-black/30 rounded-2xl p-4">

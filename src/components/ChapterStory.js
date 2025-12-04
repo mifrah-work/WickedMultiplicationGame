@@ -1,7 +1,7 @@
 import React from 'react';
 import { gameData } from '../data/gameData';
 
-const ChapterStory = ({ day, onStartGame, onBack }) => {
+const ChapterStory = ({ day, practiceMode, onStartGame, onBack }) => {
   const chapter = gameData[day];
   
   const handleStartGame = () => {
@@ -24,11 +24,11 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-900 via-green-900 to-emerald-900 flex items-center justify-center p-8">
-      <div className="max-w-4xl mx-auto bg-black/40 rounded-3xl p-12 border-4 border-pink-300 shadow-2xl">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-8">
+      <div className="max-w-4xl mx-auto bg-black/40 rounded-3xl p-12 border-4 border-yellow-400 shadow-2xl">
         <div className="text-center">
           {/* Day and Chapter Title */}
-          <h1 className="text-5xl font-bold text-pink-300 mb-2">
+          <h1 className="text-5xl font-bold text-yellow-400 mb-2">
             Day {day}
           </h1>
           <h2 className="text-3xl font-bold text-white mb-8">
@@ -45,26 +45,15 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
             </button>
             <button
               onClick={handleStartGame}
-              className="px-12 py-4 bg-gradient-to-r from-pink-500 to-green-500 hover:from-pink-400 hover:to-green-400 text-white font-bold text-xl rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-400/50"
+              className="px-12 py-4 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-400 hover:to-blue-400 text-white font-bold text-xl rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-400/50"
             >
-              ✨ Start Battle!
+              🚀 Start Battle!
             </button>
           </div>
           
           {/* Story Section */}
           <div className="bg-white/10 rounded-2xl p-8 mb-8">
-            <h3 className="text-2xl font-bold text-pink-300 mb-4">✨ The Story</h3>
-            <div className="flex items-center justify-center gap-8 mb-6">
-              <div className="flex flex-col items-center">
-                <img src={chapter.heroImage} alt={chapter.hero} className="w-20 h-20 object-contain rounded-full border-2 border-pink-300 bg-white" />
-                <span className="text-base text-pink-100 mt-2 font-semibold">{chapter.hero}</span>
-              </div>
-              <span className="text-2xl text-white font-bold">vs.</span>
-              <div className="flex flex-col items-center">
-                <img src={chapter.villainImage} alt={chapter.villain} className="w-20 h-20 object-contain rounded-full border-2 border-green-300 bg-white" />
-                <span className="text-base text-green-100 mt-2 font-semibold">{chapter.villain}</span>
-              </div>
-            </div>
+            <h3 className="text-2xl font-bold text-yellow-300 mb-4">📖 The Story</h3>
             <p className="text-xl text-white leading-relaxed">
               {chapter.story}
             </p>
@@ -73,8 +62,8 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
           {/* Characters Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* Hero */}
-            <div className="bg-pink-600/30 rounded-2xl p-6 border-2 border-pink-400">
-              <h4 className="text-xl font-bold text-pink-300 mb-3">✨ Your Hero</h4>
+            <div className="bg-blue-600/30 rounded-2xl p-6 border-2 border-blue-400">
+              <h4 className="text-xl font-bold text-blue-300 mb-3">🦸‍♂️ Your Hero</h4>
               <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
                 <img 
                   src={chapter.heroImage} 
@@ -90,12 +79,12 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
                 </div>
               </div>
               <p className="text-lg font-semibold text-white">{chapter.hero}</p>
-              <p className="text-sm text-pink-200 mt-2">Defying gravity with math!</p>
+              <p className="text-sm text-blue-200 mt-2">Ready to fight for justice!</p>
             </div>
             
             {/* Villain */}
-            <div className="bg-green-600/30 rounded-2xl p-6 border-2 border-green-400">
-              <h4 className="text-xl font-bold text-green-300 mb-3">🦹 The Villain</h4>
+            <div className="bg-red-600/30 rounded-2xl p-6 border-2 border-red-400">
+              <h4 className="text-xl font-bold text-red-300 mb-3">👹 The Villain</h4>
               <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
                 <img 
                   src={chapter.villainImage} 
@@ -111,13 +100,13 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
                 </div>
               </div>
               <p className="text-lg font-semibold text-white">{chapter.villain}</p>
-              <p className="text-sm text-green-200 mt-2">Prepare for battle!</p>
+              <p className="text-sm text-red-200 mt-2">Prepare for battle!</p>
             </div>
           </div>
           
           {/* Mission Brief */}
-          <div className="bg-pink-600/20 rounded-2xl p-6 mb-8 border-2 border-pink-400">
-            <h3 className="text-2xl font-bold text-pink-300 mb-4">✨ Your Mission</h3>
+          <div className="bg-yellow-600/20 rounded-2xl p-6 mb-8 border-2 border-yellow-400">
+            <h3 className="text-2xl font-bold text-yellow-300 mb-4">🎯 Your Mission</h3>
             <div className="text-white text-left space-y-2">
               <p>• Answer 50 multiplication questions correctly</p>
               <p>• Each correct answer powers up your hero's attack</p>
@@ -127,8 +116,8 @@ const ChapterStory = ({ day, onStartGame, onBack }) => {
           </div>
           
           {/* Motivational text */}
-          <p className="text-lg text-pink-200 mt-6 italic">
-            "Defy gravity and show your multiplication mastery!"
+          <p className="text-lg text-yellow-200 mt-6 italic">
+            "The fate of the fans depends on you! Show your multiplication mastery!"
           </p>
         </div>
       </div>
