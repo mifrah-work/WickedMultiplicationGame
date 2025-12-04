@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/WickedMultiplicationGame/static/css/main.e2589e53.css",
-    "main.js": "/WickedMultiplicationGame/static/js/main.4e495815.js",
+    "main.css": "/WickedMultiplicationGame/static/css/main.37f9f5d4.css",
+    "main.js": "/WickedMultiplicationGame/static/js/main.3bc8c6e9.js",
     "static/media/madamemorrible.png": "/WickedMultiplicationGame/static/media/madamemorrible.85e5322e5c6c1fb41db0.png",
     "static/media/flyingmonkey.png": "/WickedMultiplicationGame/static/media/flyingmonkey.424903e2466e83b92624.png",
     "static/media/elphaba.png": "/WickedMultiplicationGame/static/media/elphaba.c40fd8a533e1a411b9a4.png",
+    "static/media/demon.png": "/WickedMultiplicationGame/static/media/demon.4bf3a441afb04b0f5f71.png",
     "static/media/fiyero.png": "/WickedMultiplicationGame/static/media/fiyero.f7d34069901549b4920b.png",
     "static/media/glinda.png": "/WickedMultiplicationGame/static/media/glinda.881e9bc713f86ccda6b1.png",
     "static/media/nessarose.png": "/WickedMultiplicationGame/static/media/nessarose.0c714417e91e0533b2dd.png",
-    "static/media/Wicked1.MP3": "/WickedMultiplicationGame/static/media/Wicked1.295e48df2c52bd4b5318.MP3",
+    "static/media/Wicked1.mp3": "/WickedMultiplicationGame/static/media/Wicked1.295e48df2c52bd4b5318.mp3",
     "static/media/wrong.mp3": "/WickedMultiplicationGame/static/media/wrong.3d0ed4d52bf041fd04c9.mp3",
-    "static/media/Wicked3.MP3": "/WickedMultiplicationGame/static/media/Wicked3.f0e25c772976e6ed4b82.MP3",
-    "static/media/Wicked2.MP3": "/WickedMultiplicationGame/static/media/Wicked2.e4320c1109d6a6b2edaa.MP3",
-    "static/media/Wicked4.MP3": "/WickedMultiplicationGame/static/media/Wicked4.1d1515357ad7f6049130.MP3",
+    "static/media/Wicked3.mp3": "/WickedMultiplicationGame/static/media/Wicked3.f0e25c772976e6ed4b82.mp3",
+    "static/media/Wicked2.mp3": "/WickedMultiplicationGame/static/media/Wicked2.e4320c1109d6a6b2edaa.mp3",
+    "static/media/Wicked4.mp3": "/WickedMultiplicationGame/static/media/Wicked4.1d1515357ad7f6049130.mp3",
     "static/media/boq.png": "/WickedMultiplicationGame/static/media/boq.d7772c5b8b29826f10e3.png",
     "index.html": "/WickedMultiplicationGame/index.html",
-    "main.e2589e53.css.map": "/WickedMultiplicationGame/static/css/main.e2589e53.css.map",
-    "main.4e495815.js.map": "/WickedMultiplicationGame/static/js/main.4e495815.js.map"
+    "main.37f9f5d4.css.map": "/WickedMultiplicationGame/static/css/main.37f9f5d4.css.map",
+    "main.3bc8c6e9.js.map": "/WickedMultiplicationGame/static/js/main.3bc8c6e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2589e53.css",
-    "static/js/main.4e495815.js"
+    "static/css/main.37f9f5d4.css",
+    "static/js/main.3bc8c6e9.js"
   ]
 }
