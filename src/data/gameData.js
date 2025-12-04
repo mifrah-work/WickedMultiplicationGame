@@ -9,10 +9,10 @@ import flyingmonkeyImg from '../assets/images/flyingmonkey.png';
 import demonImg from '../assets/images/demon.png';
 
 // Import all sound files
-import wicked1Sound from '../assets/sounds/Wicked1.mp3';
-import wicked2Sound from '../assets/sounds/Wicked2.mp3';
-import wicked3Sound from '../assets/sounds/Wicked3.mp3';
-import wicked4Sound from '../assets/sounds/Wicked4.mp3';
+import wicked1Sound from '../assets/sounds/Wicked1.MP3';
+import wicked2Sound from '../assets/sounds/Wicked2.MP3';
+import wicked3Sound from '../assets/sounds/Wicked3.MP3';
+import wicked4Sound from '../assets/sounds/Wicked4.MP3';
 import wrongSound from '../assets/sounds/wrong.mp3';
 
 export const gameData = {
